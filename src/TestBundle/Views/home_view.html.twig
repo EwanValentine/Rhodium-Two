@@ -1,0 +1,211 @@
+{% extends 'TestBundle/Views/layout.html.twig' %}
+
+{% block content %}
+
+    <h1>Welcome to Rhodium</h1>
+
+    <h4>PHP Framework based on Symfony components.</h4>
+	
+	<hr>
+
+	<p><b>Features:</b></p>
+
+	<div class="well">
+
+		<ul>
+			<li>YAML Routing</li>
+			<li>Twig template engine</li>
+			<li>Doctrine entities</li>
+			<li>Modular bundles</li>
+			<li>Pimple service container</li>
+			<li>PHP >= 5.4</li>
+			<li>Leverage the power of the command line</li>
+		</ul>
+
+	</div>
+
+	<hr>
+
+	<h3>Create a Controller</h3>
+
+	<pre>
+
+		php
+
+		// YourBundle/Controllers/MyController.php
+
+		namespace Rhodium;
+
+		class MyController extends BaseController
+		{
+			public function __construct()
+			{
+				parent::__construct();
+			}
+
+			public function indexAction()
+			{
+				return $this->view('NewBundle:index');
+			}
+		}
+
+	</pre>
+
+	<hr>
+
+	<h3>Create an Entity</h3>
+
+	<pre>
+		
+		php
+
+		// YourBundle/Entities/User.php
+		
+		namespace YourBundle/Entities;
+
+		use Doctrine\ORM\Mapping as ORM;
+
+		class User
+		{
+			/** @Id @Column(type="integer") @GeneratedValue */
+			private $id;
+			
+			/** @Username @Column(type="string") */
+			private $username;
+			
+			/** @Password @Column(type="integer") */
+			private $password;
+
+			public function setId($id)
+			{
+				$this->id = $id;
+
+				return $this;
+			}
+
+			public function getId()
+			{
+				return $this->id;
+			}
+
+			public function setUsername($username)
+			{
+				$this->username = $username;
+
+				return $this;
+			}
+
+			public function getUsername()
+			{
+				return $this->username;
+			}
+
+			public function setPassword($password)
+			{
+				$this->password = $password;
+
+				return $this;
+			}
+
+			public function getPassword()
+			{
+				return $this->password;
+			}
+		}
+	</pre>
+
+	<hr>
+
+	<h3>Persist entities</h3>
+
+	<pre>
+		
+		php
+
+		// src/YourBundle/Controllers/MyController.php
+
+		namespace YourBundle\Controllers;
+
+		use YourBundle\Entities\Users;
+
+		use Rhodium\BaseController;
+
+		use Symfony\Component\HttpFoundation\Request;
+		use Symfony\Component\HttpFoundation\Response;
+
+		class MyController extends BaseController
+		{
+			public function __construct()
+			{
+				parent::__construct();
+			}
+
+			public function indexAction(Request $request)
+			{
+				$user = new User;
+				$user->setUsername($request->get('username'));
+				$user->setPassword($request->get('password'));
+				self::$core['orm.em']->persist($user);
+				self::$core['orm.em']->flush();
+			}
+		}
+	</pre>
+	
+	<hr>
+
+	<h3>Service Container</h3>
+
+	<pre>
+		php
+
+		// src/YourBundle/Config/YourBundleContainer.php
+
+		namespace YourBundle\Config;
+
+		use Rhodium\Core;
+		use Rhodium\ContainerInterface;
+
+		class YourBundleContainer implements ContainerInterface
+		{
+			public function __construct(Core $core)
+			{
+				$this->core = $core;
+				$this->core['test'] = 'Container value';
+			}
+
+			public function getServices()
+			{
+				return $this->core;
+			}
+		}
+
+	</pre>
+
+	<hr>
+
+	<h3>Register a bundle</h3>
+
+	<p>Simply call $this->core->bundle(); and pass your bundle base class into it.</p>
+
+	<pre>
+		
+		php
+
+		namespace {
+			
+			class AppKernel
+			{
+				public function registerBundles()
+				{
+					$this->core->bundle(new YourBundle\Config\YourBundle());
+				}
+			}
+		}
+
+	</pre>	
+
+	<br>
+
+
+
+{% endblock %}

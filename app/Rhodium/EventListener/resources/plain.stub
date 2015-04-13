@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<style>
+			body { font-family: 'Helvetica'; }
+			h1 { color: #CC2929; text-shadow: 1px 1px 1px #000; }
+			h2 { color: #333; }
+			h3 { color: #CC2929; text-shadow: 1px 1px 1px #000; }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>{{message}}</h1>
+
+			<h2>{{code}}</h2>
+
+			<br>
+
+			<h3>Trace</h3>
+
+			{{trace}}
+		</div>	
+	</body>
+</html>

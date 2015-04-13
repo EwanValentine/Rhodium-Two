@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'museo_sans500';
+    src: url('/../web/fonts/MuseoSans_500-webfont.svg#museo_sans500') format('svg');
+    src: url('/../web/fonts/MuseoSans_500-webfont.eot'),
+    src: url('/../web/fonts/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/../web/fonts/MuseoSans_500-webfont.woff') format('woff'),
+         url('/../web/fonts/MuseoSans_500-webfont.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'museo_sans500';
+    src: url('/../web/fonts/MuseoSans_500-italic-webfont.svg#museo_sans500') format('svg');
+    src: url('/../web/fonts/MuseoSans_500-italic-webfont.eot'),
+    src: url('/../web/fonts/MuseoSans_500-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/../web/fonts/MuseoSans_500-italic-webfont.woff') format('woff'),
+         url('/../web/fonts/MuseoSans_500-italic-webfont.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2 {
+	font-family: 'museo_sans500';
+	letter-spacing: -3px;
+}
+
+h3, h4 {
+    font-family: 'museo_sans500';
+	letter-spacing: -1px;
+}
+
+h5, h6 {
+    font-family: 'museo_sans500';
+    letter-spacing: -1px;
+}
+
+p {
+	font-family: 'museo_sans500';
+	letter-spacing: -1px;
+}
+
+.navbar {
+ border-radius: 0px; 
+}
+
+.navbar-default {
+ border-radius: 0px; 
+}

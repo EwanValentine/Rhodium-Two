@@ -1,0 +1,40 @@
+{
+    "name"        : "rhodium/test",
+    "type"        : "library",
+    "description" : "MVC framework by Ewan Valentine",
+    "keywords"    : ["framework"],
+    "homepage"    : "https://github.com/Rhodium-Digital/Rhodium.git",
+    "license"     : "MIT",
+    "authors"     : [
+        {
+            "name"  : "Ewan Valentine",
+            "email" : "ewan.valentine89@gmail.com",
+            "homepage": "http://www.ewanvalentine.co.uk",
+            "role": "Cheiftan"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "MyApp\\": "src/",
+            "": "app/"
+        }
+    },
+    "require": {
+        "pimple/pimple": "3.*",
+        "symfony/event-dispatcher": "2.5.*",
+        "symfony/http-foundation": "2.5.*",
+        "symfony/http-kernel": "2.5.*",
+        "symfony/routing": "2.5.*",
+        "symfony/yaml": "2.5.*",
+        "symfony/config": "2.5.*",
+        "symfony/console": "2.5.*",
+        "twig/twig": "1.*",
+        "doctrine/orm": "*",
+        "knplabs/console-service-provider": "dev-master"
+    },
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "3.*",
+        "symfony/browser-kit": "2.4.*"
+    }
+}

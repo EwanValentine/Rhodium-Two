@@ -1,0 +1,36 @@
+<html>
+	<head>		
+		<link rel="stylesheet" href="{{ app.request.baseURL }}/web/css/bootstrap.css">
+		<link rel="stylesheet" href="{{ app.request.baseURL }}/web/css/prettify.css">
+		<link rel="stylesheet" href="{{ app.request.baseURL }}/web/css/main.css">
+		<link rel="stylesheet" href="{{ app.request.baseURL }}/web/css/flat-ui.css">
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-default" role="navigation">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="#">Rhodium</a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			    
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+		</header>
+		<div class="container">
+			{% block content %}
+			    
+			{% endblock %}
+		</div>
+		<footer>
+			
+		</footer>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="{{ app.request.baseURL }}/web/js/application.js"></script>
+		<script src="{{ app.request.baseURL }}/web/js/bootstrap.js"></script>
+	</body>
+</html>
