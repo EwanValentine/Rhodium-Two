@@ -3,7 +3,11 @@
 namespace Rhodium;
 
 use Rhodium\Container\Container;
+use Rhodium\StandardLibrary\EventDispatcher\EventManager;
+
 use Pimple\ServiceProviderInterface;
+
+use Composer\Autoload\ClassLoader;
 
 use Symfony\Component\Routing\Route;
 use Symfony\Component\HttpKernel\HttpKernel;
@@ -12,8 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\TerminableInterface;
-
-use Rhodium\StandardLibrary\EventDispatcher\EventManager;
 
 class Core extends Container implements HttpKernelInterface, TerminableInterface
 {
@@ -43,6 +45,10 @@ class Core extends Container implements HttpKernelInterface, TerminableInterface
         $core['controllers'] = function () use ($core) {
             return $core['controller.factory'];
         };
+
+        $core['class.loader'] = $core->factory(function() use ($core) {
+            return new Autoload;
+        });
 
         $core['controller.factory'] = $core->factory(function() use ($core) {
             return new \Rhodium\Http\Controller\ControllerCollection($core['route.factory']);
